@@ -44,24 +44,45 @@ for (let i = 0; i < team.length; i++) {
   // console.log(member);
 
   // creo tanti div quanti gli elementi nell'array a cui darò la classe team-card
-  const teamCard = document.createElement('div');
-  teamCard.classList.add('team-card');
-  teamContainer.appendChild(teamCard);
+  // const teamCard = document.createElement('div');
+  // teamCard.classList.add('team-card');
+  // teamContainer.appendChild(teamCard);
   // console.log(teamCard);
 
   // creo attraverso i backtick la struttura da inserire nella mia team-card copiandola dal mio html
-  const teamMember = `
-    <div class="card-image">
-      <img
-        src="img/${member.image}"
-        alt="${member.name}"
-      />
-    </div>
-    <div class="card-text">
-      <h3>${member.name}</h3>
-      <p>${member.role}</p>
-    </div>
-  `;
+  // const teamMember = `
+  //   <div class="card-image">
+  //     <img
+  //       src="img/${member.image}"
+  //       alt="${member.name}"
+  //     />
+  //   </div>
+  //   <div class="card-text">
+  //     <h3>${member.name}</h3>
+  //     <p>${member.role}</p>
+  //   </div>
+  // `;
+  // teamCard(member.name, member.role, member.image);
   // console.log(teamMember);
+  // teamCard.innerHTML = teamMember;
+}
+
+// fuznione di creazione del mio div
+function teamCard(name, role, image) {
+  const teamCard = document.createElement('div');
+  teamCard.classList.add('team-card');
+  teamContainer.appendChild(teamCard);
+  const teamMember = `
+  <div class="card-image">
+    <img
+      src="img/image"
+      alt="name"
+    />
+  </div>
+  <div class="card-text">
+    <h3>name</h3>
+    <p>role</p>
+  </div>
+`;
   teamCard.innerHTML = teamMember;
 }
