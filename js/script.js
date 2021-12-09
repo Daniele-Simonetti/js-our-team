@@ -35,20 +35,33 @@ const team = [
 // Prendendo come riferimento la card di esempio presente nell’html, stampiamo dinamicamente una card per ogni membro del team.
 
 // seleziono il mio team-container e all'interno andrò a creare la mia card
-
 const teamContainer = document.querySelector('.team-container');
 console.log(teamContainer);
 
-// creo un ciclo for per creare le card in base hai nomi presenti nell'array
+// creo un ciclo for per creare le card in base ai nomi presenti nell'array
 for (let i = 0; i < team.length; i++) {
   const member = team[i];
   // console.log(member);
-  // creo dei div a cui darò la classe team-card
+
+  // creo tanti div quanti gli elementi nell'array a cui darò la classe team-card
   const teamCard = document.createElement('div');
   teamCard.classList.add('team-card');
   teamContainer.appendChild(teamCard);
   // console.log(teamCard);
-  // creo attraverso i backtick la struttura 
 
-  
+  // creo attraverso i backtick la struttura da inserire nella mia team-card copiandola dal mio html
+  const teamMember = `
+    <div class="card-image">
+      <img
+        src="img/${member.image}"
+        alt="${member.name}"
+      />
+    </div>
+    <div class="card-text">
+      <h3>${member.name}</h3>
+      <p>${member.role}</p>
+    </div>
+  `;
+  // console.log(teamMember);
+  teamCard.innerHTML = teamMember;
 }
