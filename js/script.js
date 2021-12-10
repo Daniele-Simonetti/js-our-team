@@ -51,8 +51,9 @@ function teamCard(name, role, image) {
     <p>${role}</p>
   </div>
 `;
-  teamCard.innerHTML = teamMember;
+  teamCard.innerHTML += teamMember;
 }
+
 // seleziono il mio team-container e all'interno andrò a creare la mia card
 const teamContainer = document.querySelector('.team-container');
 console.log(teamContainer);
@@ -63,3 +64,24 @@ for (let i = 0; i < team.length; i++) {
   // console.log(member);
   teamCard(member.name, member.role, member.image);
 }
+
+// creo le costanti per gli inpiy value
+const inputName = document.getElementById('name');
+const inputRole = document.getElementById('role');
+const inputImage = document.getElementById('image');
+const button = document.getElementById('addMemberButton');
+
+// creo l'evento del click
+button.addEventListener('click', function () {
+  const name = inputName.value;
+  const role = inputRole.value;
+  const image = inputImage.value;
+
+  const obj = {
+    name: name,
+    role: role,
+    image: image
+  }
+
+  team.push(obj);
+});
